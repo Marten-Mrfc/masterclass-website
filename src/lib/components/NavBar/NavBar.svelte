@@ -1,11 +1,13 @@
 <script lang="ts">
+    import { base } from '$app/paths';
     import { onMount } from 'svelte';
     let title = 'Marten Mrfc';
+    let base: '' | `/${string}`;
     let navItems = [
-        { name: 'Home', href: '{base}/' },
-        { name: 'Over Mij', href: '{base}/#about-me' },
-        { name: 'Projecten', href: '{base}/projects' },
-        { name: 'Contact', href: '{base}/contact' }
+    { name: 'Home', href: `${base}/` },
+    { name: 'Over Mij', href: `${base}/#about-me` },
+    { name: 'Projecten', href: `${base}/projects` },
+    { name: 'Contact', href: `${base}/contact` }
     ];
 
     let projects = [{}];
