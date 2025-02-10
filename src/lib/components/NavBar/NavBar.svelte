@@ -2,7 +2,6 @@
     import { base } from '$app/paths';
     import { onMount } from 'svelte';
     let title = 'Marten Mrfc';
-    let base: '' | `/${string}`;
     let navItems = [
     { name: 'Home', href: `${base}/` },
     { name: 'Over Mij', href: `${base}/#about-me` },
@@ -14,7 +13,7 @@
 
     onMount(async () => {
         // Load projects from the JSON file
-        const response = await fetch('/projects.json');
+        const response = await fetch(`${base}/projects.json`);
         const projectsData = await response.json();
         projects = projectsData.map(project => ({
             name: project.title,
