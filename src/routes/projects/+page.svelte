@@ -11,7 +11,7 @@
     });
 
     function handleProjectClick(slug: string) {
-        window.location.href = `/projects/${slug}`;
+        window.location.href = `{base}/projects/${slug}`;
     }
 </script>
 

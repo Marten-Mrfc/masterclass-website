@@ -9,7 +9,7 @@
             <h1 class="text-4xl font-bold text-gray-800 mb-4">404 - Page Not Found</h1>
             <p class="text-xl text-gray-600 mb-2">Oops! The page you're looking for isn't here.</p>
             <p class="text-lg text-gray-500 mb-6">You might have the wrong address, or the page may have moved.</p>
-            <a href="/" class="px-6 py-3 bg-blue-500 text-lg text-white rounded hover:bg-blue-700 transition duration-300">Go Home</a>
+            <a href="{base}/" class="px-6 py-3 bg-blue-500 text-lg text-white rounded hover:bg-blue-700 transition duration-300">Go Home</a>
         </div>
     </div>
 </div>
