@@ -7,7 +7,7 @@ const config = {
 			fallback: '404.html'
 		}),
 		paths: {
-			base: 'https://marten-mrfc.github.io/masterclass-website'
+			base: '/masterclass-website'
 		}
 	}
 };
