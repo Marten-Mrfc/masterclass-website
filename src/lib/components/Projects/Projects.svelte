@@ -4,12 +4,12 @@
     let projects: { imageUrl: string; title: string; description: string; slug: string }[] = [];
 
     onMount(async () => {
-        const response = await fetch('{base}/projects.json');
+        const response = await fetch('/projects.json');
         projects = await response.json();
     });
 
     function handleProjectClick(slug: string) {
-        window.location.href = `{base}/projects/${slug}`;
+        window.location.href = `/projects/${slug}`;
     }
 </script>
 

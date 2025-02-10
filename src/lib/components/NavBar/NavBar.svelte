@@ -2,10 +2,10 @@
     import { onMount } from 'svelte';
     let title = 'Marten Mrfc';
     let navItems = [
-        { name: 'Home', href: '{base}/' },
-        { name: 'Over Mij', href: '{base}/#about-me' },
-        { name: 'Projecten', href: '{base}/projects' },
-        { name: 'Contact', href: '{base}/contact' }
+        { name: 'Home', href: '/' },
+        { name: 'Over Mij', href: '/#about-me' },
+        { name: 'Projecten', href: '/projects' },
+        { name: 'Contact', href: '/contact' }
     ];
 
     let projects = [{}];

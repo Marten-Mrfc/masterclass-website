@@ -71,6 +71,6 @@
 <header class="text-center py-16 bg-gradient-to-tr from-purple-400 via-pink-400 to-red-400 text-white animated-gradient h-[89.1vh] relative">
   <h1 class="text-5xl font-bold mb-4 tracking-wide">{title}</h1>
   <h2 class="text-3xl mb-6 font-light min-h-[1.5rem] animate-pulse">Ik ben een {currentSubtitle}</h2>
-  <Button text={buttonText} variant="primary" size="md" onClick={() => location.href='{base}/contact'} />
+  <Button text={buttonText} variant="primary" size="md" onClick={() => location.href='/contact'} />
   <Button on:click={scrollToAboutMe} text="↓" variant="scroll" />
 </header>
