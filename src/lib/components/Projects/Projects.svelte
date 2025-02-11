@@ -1,10 +1,11 @@
 <script lang="ts">
     import { onMount } from 'svelte';
+    import { base } from '$app/paths';
     import Button from '../button/Button.svelte';
     let projects: { imageUrl: string; title: string; description: string; slug: string }[] = [];
 
     onMount(async () => {
-        const response = await fetch('/projects.json');
+        const response = await fetch(`${base}/projects.json`);
         projects = await response.json();
     });
 
