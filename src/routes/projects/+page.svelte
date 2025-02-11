@@ -1,14 +1,9 @@
 <script lang="ts">
-    import { onMount } from 'svelte';
     import NavBar from '$lib/components/NavBar/NavBar.svelte';
     import Button from '$lib/components/button/Button.svelte';
-    
-    let projects: { imageUrl: string; title: string; description: string; slug: string }[] = [];
+    import { projects as projectsData } from './data.js';
 
-    onMount(async () => {
-        const response = await fetch('/projects.json');
-        projects = await response.json();
-    });
+    let projects = projectsData;
 
     function handleProjectClick(slug: string) {
         window.location.href = `/projects/${slug}`;
