@@ -13,7 +13,7 @@
 
     onMount(async () => {
         // Load projects from the JSON file
-        const response = await fetch(`/projects.json`);
+        const response = await fetch(`${base}/projects.json`);
         const projectsData = await response.json();
         projects = projectsData.map(project => ({
             name: project.title,
