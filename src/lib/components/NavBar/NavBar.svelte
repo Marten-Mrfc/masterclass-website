@@ -40,7 +40,7 @@
                     {name}
                 </a>
                 {#if name === 'Projects'}
-                <div class="absolute hidden group-hover:block bg-gray-900 z-10 shadow-lg rounded-md group-hover:flex flex-col">
+                <div class="absolute hidden bg-gray-900 z-10 shadow-lg rounded-md group-hover:flex flex-col">
                     {#each projects as project}
                         <a href={project.href} class="block text-white px-4 py-2 hover:bg-gray-700 whitespace-nowrap">
                             {project.name}

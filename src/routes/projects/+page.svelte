@@ -3,6 +3,7 @@
     import Button from '$lib/components/button/Button.svelte';
     import { base } from '$app/paths';
     import { onMount } from 'svelte';
+    import { fade } from 'svelte/transition';
     
     let projects: { imageUrl: string; title: string; description: string; slug: string }[] = [];
     let loading = true;
@@ -25,24 +26,42 @@
     }
 </script>
 
+<svelte:head>
+    <title>Projects | Portfolio</title>
+    <meta name="description" content="Explore my portfolio of projects and works" />
+</svelte:head>
+
 <div class="min-h-screen bg-gray-900">
     <NavBar />
     
     <section class="pt-4">
         <div class="container mx-auto px-6">
             {#if loading}
-                <div class="text-white text-center py-12">Loading projects...</div>
+                <div class="flex justify-center items-center py-20" transition:fade>
+                    <div class="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
+                </div>
             {:else if error}
-                <div class="text-red-500 text-center py-12">{error}</div>
+                <div class="text-red-500 text-center py-12 bg-red-900/20 rounded-lg" transition:fade>
+                    <p class="text-lg">{error}</p>
+                    <Button 
+                        text="Try Again"
+                        variant="secondary"
+                        size="sm"
+                        onClick={() => window.location.reload()}
+                        class="mt-4"
+                    />
+                </div>
             {:else}
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" transition:fade>
                     {#each projects as project}
                         <div class="flex flex-col bg-gray-800 rounded-lg shadow-xl overflow-hidden group hover:shadow-2xl transition-all duration-300">
                             <div class="relative overflow-hidden">
                                 <img 
                                     src={project.imageUrl} 
                                     alt={project.title} 
-                                    class="w-full h-48 object-cover transform"
+                                    class="w-full h-48 object-cover transform group-hover:scale-105 transition-transform duration-300"
+                                    loading="lazy"
+                                    decoding="async"
                                 />
                             </div>
                             <div class="flex flex-col flex-grow p-6">
