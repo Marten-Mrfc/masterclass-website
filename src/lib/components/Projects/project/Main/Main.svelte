@@ -1,25 +1,56 @@
-<script>
-    export let project;
+<script lang="ts">
+    import { onMount } from 'svelte';
+    import type { Project } from '$lib/types';
+
+    export let project: Project;
+    let mounted = false;
+
+    onMount(() => {
+        mounted = true;
+        if (project) {
+            console.log('Main component mounted, project:', project);
+        }
+    });
+
+    $: if (mounted && project) {
+        console.log('Project data updated:', project);
+    }
+
+    $: safeProject = project ? {
+        title: project.title || 'Untitled Project',
+        description: project.description || '',
+        content: project.content || '',
+        link: project.link || null
+    } : {
+        title: 'Loading...',
+        description: '',
+        content: '',
+        link: null
+    };
 </script>
 
 <main class="flex-1 bg-gray-800 rounded-xl shadow-lg p-6 lg:p-8">
-    <div class="max-h-[80vh] overflow-y-auto px-2">
-        <div class="prose-invert max-w-none">
-            <p class="text-4xl font-bold text-gray-100 leading-relaxed">
-                {project.title}
-            </p>
-            {#if project.description}
-                <p class="text-gray-400 text-sm">
-                    {project.description}
+    {#if project}
+        <div class="max-h-[80vh] overflow-y-auto px-2">
+            <div class="prose-invert max-w-none">
+                <p class="text-4xl font-bold text-gray-100 leading-relaxed">
+                    {safeProject.title}
                 </p>
-            {/if}
-            <div class="mt-8"></div>
-            {#if project.content}
-                <div class="text-gray-200 text-lg">
-                    {@html project.content}
-                </div>
-            {/if}
+                {#if safeProject.description}
+                    <p class="text-gray-400 text-sm">
+                        {safeProject.description}
+                    </p>
+                {/if}
+                <div class="mt-8"></div>
+                {#if safeProject.content}
+                    <div class="text-gray-200 text-lg">
+                        {@html safeProject.content}
+                    </div>
+                {/if}
+            </div>
         </div>
-    </div>
+    {:else}
+        <div class="text-white">Loading project details...</div>
+    {/if}
 </main>
 
