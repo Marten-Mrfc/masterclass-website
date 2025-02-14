@@ -35,8 +35,8 @@
     }
 </script>
 
-<aside class="w-[300px] flex-shrink-0" aria-label="Project details">
-    <div class="sticky top-4 bg-gray-800 rounded-xl shadow-lg p-6 h-[80vh] space-y-6">
+<aside class="w-full md:w-[300px] flex-shrink-0" aria-label="Project details">
+    <div class="sticky top-4 bg-gray-800 rounded-xl shadow-lg p-4 md:p-6 h-[80vh] space-y-6">
         {#if safeProject.imageUrl}
             <div class="relative overflow-hidden rounded-xl aspect-video">
                 <img 

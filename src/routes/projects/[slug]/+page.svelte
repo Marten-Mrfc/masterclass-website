@@ -11,8 +11,8 @@
 
 <div class="min-h-screen bg-gray-900">
     <NavBar />
-    <div class="max-w-6xl mx-auto px-4 py-4">
-        <article class="flex gap-8">
+    <div class="max-w-6xl mx-auto px-4 py-4 h-[calc(100vh-4rem)] overflow-y-auto">
+        <article class="flex flex-col md:flex-row gap-8">
             {#if !project}
                 <div class="text-red-500">Project not found</div>
             {:else}
