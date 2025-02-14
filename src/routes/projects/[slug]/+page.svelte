@@ -1,6 +1,4 @@
 <script lang="ts">
-    import { base } from '$app/paths';
-    import { error } from '@sveltejs/kit';
     import Aside from '$lib/components/Projects/project/aside/Aside.svelte';
     import Main from '$lib/components/Projects/project/Main/Main.svelte';
     import NavBar from '$lib/components/NavBar/NavBar.svelte';
